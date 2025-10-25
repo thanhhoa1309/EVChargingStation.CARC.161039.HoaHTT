@@ -1,10 +1,9 @@
-﻿using EVChargingStation.CARC.Domain.HoaHTT.Entities;
-using EVChargingStation.CARC.Domain.HoaHTT.Enums;
+﻿using EVChargingStation.CARC.Domain.HoaHTT.Enums;
 using System.ComponentModel.DataAnnotations;
 
 namespace EVChargingStation.CARC.Domain.HoaHTT.DTOs.PlanDTOs
 {
-    public class PlanResponceDTOs : BaseEntity
+    public class PlanResponceDTOs
     {
         public Guid HoaHTTID { get; set; }
 

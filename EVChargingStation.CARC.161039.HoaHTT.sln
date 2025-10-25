@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36429.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{81DDED9D-158B-E303-5F62-77A2896D2A5A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EVChargingStation.CARC.Domain.HoaHTT", "EVChargingStation.CARC.Domain.HoaHTT\EVChargingStation.CARC.Domain.HoaHTT.csproj", "{C0E581F2-898D-78AC-6890-DD2128CD62F3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EVChargingStation.CARC.Infrastructure.HoaHTT", "EVChargingStation.CARC.Infrastructure.HoaHTT\EVChargingStation.CARC.Infrastructure.HoaHTT.csproj", "{3BF6C982-E1CC-8840-73FD-AD16233DF833}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EVChargingStation.CARC.Application.HoaHTT", "EVChargingStation.CARC.Application.HoaHTT\EVChargingStation.CARC.Application.HoaHTT.csproj", "{AC6AB322-3B48-8031-8496-3C982033D798}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EVChargingStation.CARC.WebAPI.HoaHTT", "EVChargingStation.CARC.WebAPI.HoaHTT\EVChargingStation.CARC.WebAPI.HoaHTT.csproj", "{2643AF5F-3815-5BEF-9A8A-CC2C418BBC16}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0E581F2-898D-78AC-6890-DD2128CD62F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0E581F2-898D-78AC-6890-DD2128CD62F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0E581F2-898D-78AC-6890-DD2128CD62F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0E581F2-898D-78AC-6890-DD2128CD62F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3BF6C982-E1CC-8840-73FD-AD16233DF833}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BF6C982-E1CC-8840-73FD-AD16233DF833}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BF6C982-E1CC-8840-73FD-AD16233DF833}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BF6C982-E1CC-8840-73FD-AD16233DF833}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC6AB322-3B48-8031-8496-3C982033D798}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC6AB322-3B48-8031-8496-3C982033D798}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC6AB322-3B48-8031-8496-3C982033D798}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC6AB322-3B48-8031-8496-3C982033D798}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2643AF5F-3815-5BEF-9A8A-CC2C418BBC16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2643AF5F-3815-5BEF-9A8A-CC2C418BBC16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2643AF5F-3815-5BEF-9A8A-CC2C418BBC16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2643AF5F-3815-5BEF-9A8A-CC2C418BBC16}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {59BD3983-29FC-4C4A-BC4C-8228E736697E}
+	EndGlobalSection
+EndGlobal

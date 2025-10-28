@@ -9,11 +9,18 @@ namespace EVChargingStation.CARC.Infrastructure.HoaHTT
         private readonly FA25_SWD392_SE161039_G6_EvChargingStation _dbContext;
 
         public UnitOfWork(FA25_SWD392_SE161039_G6_EvChargingStation dbContext,
+
+            IGenericRepository<User> userRepository,
+
             IGenericRepository<Plan> planRepository)
+
         {
             _dbContext = dbContext;
+            Users = userRepository;
             Plan = planRepository;
         }
+
+        public IGenericRepository<User> Users { get; }
         public IGenericRepository<Plan> Plan { get; }
 
         public void Dispose()

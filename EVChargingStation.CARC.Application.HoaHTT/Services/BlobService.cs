@@ -1,5 +1,4 @@
-﻿using EVChargingStation.CARC.Application.HoaHTT.Interfaces;
-using EVChargingStation.CARC.Application.HoaHTT.Interfaces.Commons;
+﻿using EVChargingStation.CARC.Application.HoaHTT.Interfaces.Commons;
 using Minio;
 using Minio.DataModel.Args;
 using Minio.Exceptions;

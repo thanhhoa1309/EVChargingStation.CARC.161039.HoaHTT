@@ -1,4 +1,4 @@
-﻿namespace EVChargingStation.CARC.Application.HoaHTT.Interfaces
+﻿namespace EVChargingStation.CARC.Application.HoaHTT.Interfaces.Commons
 {
     public interface IBlobService
     {

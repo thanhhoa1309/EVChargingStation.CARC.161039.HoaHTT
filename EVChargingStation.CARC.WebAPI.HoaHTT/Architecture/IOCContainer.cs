@@ -68,6 +68,7 @@ public static class IocContainer
         services.AddScoped<IClaimsService, ClaimsService>();
         services.AddScoped<IUnitOfWork, UnitOfWork>();
         services.AddScoped<IPlanService, PlanService>();
+        services.AddScoped<IAuthService, AuthService>();
         services.AddHttpContextAccessor();
 
         return services;

@@ -6,6 +6,8 @@ namespace EVChargingStation.CARC.Infrastructure.HoaHTT.Interfaces
     {
         IGenericRepository<Plan> Plan { get; }
 
+        IGenericRepository<User> Users { get; }
+
         Task<int> SaveChangesAsync();
     }
 }

@@ -147,7 +147,7 @@ namespace EVChargingStation.CARC.WebAPI.HoaHTT.Controllers
             // ================================
             // DELETE: api/plans/{id}
             // ================================
-            [HttpDelete("{HoaHTTID}")]
+            [HttpDelete("{id}")]
             [Authorize(Policy = "AdminPolicy")]
             [SwaggerOperation(
                 Summary = "Delete plan",
@@ -155,14 +155,14 @@ namespace EVChargingStation.CARC.WebAPI.HoaHTT.Controllers
             [ProducesResponseType(typeof(ApiResult<bool>), 200)]
             [ProducesResponseType(typeof(ApiResult<object>), 404)]
             [ProducesResponseType(typeof(ApiResult<object>), 500)]
-            public async Task<IActionResult> DeletePlanAsync(Guid HoaHTTID)
+            public async Task<IActionResult> DeletePlanAsync(Guid id)
             {
                 try
                 {
-                    var result = await _planService.DeletePlanAsync(HoaHTTID);
+                    var result = await _planService.DeletePlanAsync(id);
 
                     if (!result)
-                        return NotFound(ApiResult<object>.Failure("404", $"Plan with ID {HoaHTTID} not found."));
+                        return NotFound(ApiResult<object>.Failure("404", $"Plan with ID {id} not found."));
 
                     return Ok(ApiResult<bool>.Success(result, "200", "Plan deleted successfully."));
                 }

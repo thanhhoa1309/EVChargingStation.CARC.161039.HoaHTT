@@ -5,7 +5,6 @@ namespace EVChargingStation.CARC.Domain.HoaHTT.DTOs.PlanDTOs
 {
     public class PlanResponceDTOs
     {
-        public Guid HoaHTTID { get; set; }
 
         public string Name { get; set; } = string.Empty;
 

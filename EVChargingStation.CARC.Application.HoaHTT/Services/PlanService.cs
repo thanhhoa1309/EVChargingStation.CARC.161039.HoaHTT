@@ -58,7 +58,7 @@ namespace EVChargingStation.CARC.Application.HoaHTT.Services
                 // ✅ Trả về DTO phản hồi
                 var responseDto = new PlanResponceDTOs
                 {
-                    HoaHTTID = plan.HoaHTTID,
+
                     Name = plan.Name,
                     Description = plan.Description,
                     Type = plan.Type,
@@ -93,7 +93,7 @@ namespace EVChargingStation.CARC.Application.HoaHTT.Services
                 // Map dữ liệu sang DTO trả về
                 var responseDto = new PlanResponceDTOs
                 {
-                    HoaHTTID = plan.HoaHTTID,
+
                     Name = plan.Name,
                     Description = plan.Description,
                     Type = plan.Type,
@@ -166,7 +166,7 @@ namespace EVChargingStation.CARC.Application.HoaHTT.Services
                 // 7️⃣ Mapping sang DTO
                 var result = pagedPlans.Select(p => new PlanResponceDTOs
                 {
-                    HoaHTTID = p.HoaHTTID,
+
                     Name = p.Name,
                     Description = p.Description,
                     Type = p.Type,
@@ -199,37 +199,30 @@ namespace EVChargingStation.CARC.Application.HoaHTT.Services
                     throw new KeyNotFoundException($"Plan with ID {HoaHTTID} not found.");
                 }
 
-                // Lưu dữ liệu cũ để ghi log
-                var oldData = new
-                {
-                    plan.Name,
-                    plan.Description,
-                    plan.Type,
-                    plan.Price,
-                    plan.MaxDailyKwh
-                };
-
                 bool isUpdated = false;
 
-                // ✅ Cập nhật nếu có giá trị mới
-                if (!string.IsNullOrWhiteSpace(planUpdateDto.Name) && planUpdateDto.Name != plan.Name)
+                // ✅ Cập nhật Name nếu có giá trị mới
+                if (!string.IsNullOrWhiteSpace(planUpdateDto.Name) && plan.Name != planUpdateDto.Name)
                 {
                     plan.Name = planUpdateDto.Name;
                     isUpdated = true;
                 }
 
-                if (!string.IsNullOrWhiteSpace(planUpdateDto.Description) && planUpdateDto.Description != plan.Description)
+                // ✅ Cập nhật Description nếu có giá trị mới
+                if (!string.IsNullOrWhiteSpace(planUpdateDto.Description) && plan.Description != planUpdateDto.Description)
                 {
                     plan.Description = planUpdateDto.Description;
                     isUpdated = true;
                 }
 
-                if (planUpdateDto.Type != plan.Type)
+                // ✅ Cập nhật Type nếu hợp lệ và khác giá trị hiện tại
+                if (Enum.IsDefined(typeof(PlanType), planUpdateDto.Type) && plan.Type != planUpdateDto.Type)
                 {
                     plan.Type = planUpdateDto.Type;
                     isUpdated = true;
                 }
 
+                // ✅ Cập nhật Price nếu có giá trị mới và hợp lệ
                 if (planUpdateDto.Price.HasValue && plan.Price != planUpdateDto.Price.Value)
                 {
                     if (planUpdateDto.Price.Value < 0)
@@ -238,6 +231,7 @@ namespace EVChargingStation.CARC.Application.HoaHTT.Services
                     isUpdated = true;
                 }
 
+                // ✅ Cập nhật MaxDailyKwh nếu có giá trị mới và hợp lệ
                 if (planUpdateDto.MaxDailyKwh.HasValue && plan.MaxDailyKwh != planUpdateDto.MaxDailyKwh.Value)
                 {
                     if (planUpdateDto.MaxDailyKwh.Value < 0)
@@ -246,6 +240,7 @@ namespace EVChargingStation.CARC.Application.HoaHTT.Services
                     isUpdated = true;
                 }
 
+                // ✅ Nếu không có thay đổi nào, trả về dữ liệu hiện tại
                 if (!isUpdated)
                 {
                     _loggerService.Warn($"[UpdatePlanAsync] No changes detected for HoaHTTID: {HoaHTTID}");
@@ -259,26 +254,17 @@ namespace EVChargingStation.CARC.Application.HoaHTT.Services
                     };
                 }
 
-                // ✅ Lưu thay đổi
+                // ✅ Cập nhật metadata
                 plan.UpdatedAt = DateTime.UtcNow;
                 plan.UpdatedBy = _claimsService.GetCurrentUserId;
 
+                // ✅ Lưu thay đổi vào database
                 await _unitOfWork.Plan.Update(plan);
                 await _unitOfWork.SaveChangesAsync();
 
-                // Ghi log thay đổi
-                var newData = new
-                {
-                    plan.Name,
-                    plan.Description,
-                    plan.Type,
-                    plan.Price,
-                    plan.MaxDailyKwh
-                };
-
                 _loggerService.Success($"[UpdatePlanAsync] Plan info updated successfully for HoaHTTID: {HoaHTTID}");
 
-                // ✅ Trả về dữ liệu mới
+                // ✅ Trả về dữ liệu đã cập nhật
                 return new PlanUpdateDTOs
                 {
                     Name = plan.Name,

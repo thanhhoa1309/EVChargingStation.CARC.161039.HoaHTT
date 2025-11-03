@@ -12,6 +12,7 @@ namespace EVChargingStation.CARC.WebAPI.HoaHTT.Controllers
     {
         [Route("api/plans")]
         [ApiController]
+        [Authorize(Policy = "AdminPolicy")]
         public class PlanController : ControllerBase
         {
             private readonly IPlanService _planService;

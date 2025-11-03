@@ -58,7 +58,7 @@ namespace EVChargingStation.CARC.Application.HoaHTT.Services
                 // ✅ Trả về DTO phản hồi
                 var responseDto = new PlanResponceDTOs
                 {
-
+                    HoaHTTID = plan.HoaHTTID,
                     Name = plan.Name,
                     Description = plan.Description,
                     Type = plan.Type,
@@ -93,7 +93,7 @@ namespace EVChargingStation.CARC.Application.HoaHTT.Services
                 // Map dữ liệu sang DTO trả về
                 var responseDto = new PlanResponceDTOs
                 {
-
+                    HoaHTTID = plan.HoaHTTID,
                     Name = plan.Name,
                     Description = plan.Description,
                     Type = plan.Type,
@@ -166,7 +166,7 @@ namespace EVChargingStation.CARC.Application.HoaHTT.Services
                 // 7️⃣ Mapping sang DTO
                 var result = pagedPlans.Select(p => new PlanResponceDTOs
                 {
-
+                    HoaHTTID = p.HoaHTTID,
                     Name = p.Name,
                     Description = p.Description,
                     Type = p.Type,

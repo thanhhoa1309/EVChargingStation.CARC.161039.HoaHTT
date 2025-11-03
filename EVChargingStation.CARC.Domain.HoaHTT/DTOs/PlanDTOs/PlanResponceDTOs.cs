@@ -1,10 +1,13 @@
 ﻿using EVChargingStation.CARC.Domain.HoaHTT.Enums;
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace EVChargingStation.CARC.Domain.HoaHTT.DTOs.PlanDTOs
 {
     public class PlanResponceDTOs
     {
+        // Plan identifier
+        public Guid HoaHTTID { get; set; } = Guid.Empty;
 
         public string Name { get; set; } = string.Empty;
 
